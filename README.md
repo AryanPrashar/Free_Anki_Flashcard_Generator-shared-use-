@@ -32,11 +32,13 @@ __Now use my free, open-source GitHub project which uses AI to automatically cre
 4. **Open your computer's command prompt** (on Windows, search for "cmd"; on Mac, search for "Terminal").
 5. **Navigate to the project folder** you just extracted. For example, if it's on your desktop, you would type 
 ```shell
-cd Desktop/Anki_FlashCard_Generator-main```
+cd Desktop/Anki_FlashCard_Generator-main
+```
 and press Enter
 6. **Install** the necessary Python libraries by typing 
 ```shell
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 ## Generate Your Anki Flashcards
 
