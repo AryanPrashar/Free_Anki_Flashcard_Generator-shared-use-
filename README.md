@@ -2,25 +2,18 @@
 
 This zip file will generate Flashcards for **FREE** with no additional costs or limitations:
 
-# Process Setup
-Follow the steps below to setup this **Free PDF-to-Anki AI Pipeline:**
+The process has two main parts:
+Part 1: The One-Time Setup: Installing all the necessary free software.
+Part 2: Your Reusable Workflow: The simple steps you'll follow each time you want to create new flashcards.
+
+# Part 1: The One-Time Setup
+You only need to do these steps **ONCE**
 
 ## Install Anki:
 __Anki is the flashcard application where you'll study your generated cards.__
 
 1. **Download Anki:** Go to the official Anki website: https://apps.ankiweb.net/
 2. **Install Anki:** Download and install the correct version for your operating system (Windows, Mac, or Linux). Follow the installation prompts.
-
-## Install the AnkiConnect Add-on
-
-__This add-on allows other programs to connect with Anki, which is essential for our automated pipeline.__
-
-1. **Open Anki:** Launch the Anki application.
-2. **Go to Add-ons:** In the top menu bar, click on "Tools" and then select "Add-ons."
-3. **Get Add-on Code:** A new window will appear. In the top-right corner, click "Get Add-ons..."
-4. **Enter Code:** A small window will ask for a code. Enter the following code: 2055492159
-5. **Install:** Click "OK" to install the add-on.
-6. **Restart Anki:** Close and reopen Anki to complete the installation.
 
 ## Set Up the AI Flashcard Generator
 
@@ -29,50 +22,75 @@ __Now use my free, open-source GitHub project which uses AI to automatically cre
 1. **Install Python:** If you don't have Python installed, download and install it from https://www.python.org/downloads/. During installation, make sure to check the box that says "Add Python to PATH."
 2. **Click the green "Code" button** above and select "Download ZIP."
 3. **Extract** the downloaded ZIP file to a location you'll remember, like your Desktop or Documents folder.
-4. **Open your computer's command prompt** (on Windows, search for "cmd"; on Mac, search for "Terminal").
-5. **Navigate to the project folder** you just extracted. For example, if it's on your desktop, you would type 
+4. **Place** this unzipped folder somewhere convenient, like your Desktop.
+
+## Install and Set Up the Local AI (Ollama)
+
+__This is the "brain" that will create your flashcards. It runs 100% on your own computer, so it's free and private.__
+
+1. **Go** to the Ollama website: https://ollama.com/
+2. **Download** and install Ollama for your operating system.
+3. **After it's installed,** Ollama will run in the background. Now, you need to download a specific AI model for it to use.
+4. **Open** your computer's command line tool:
+            **Windows:** Press the Windows Key, type cmd, and press Enter.
+            **Mac:** Press Command + Spacebar, type Terminal, and press Enter.
+5. **In the black window** that appears, type the following command and press Enter. This downloads the "Mistral" AI model (it's a few gigabytes and may take a few minutes).
+
 ```shell
-cd Desktop/Anki_FlashCard_Generator-main
+ollama run mistral
 ```
-and press Enter
-6. **Install** the necessary Python libraries by typing 
+
+## Install the Required Python Libraries
+
+1. Open a new command line window (cmd or Terminal).
+2. Install the PDF reader library by running this command:
 ```shell
-pip install -r requirements.txt
+pip install PyMuPDF
 ```
+3. Install the requests library by running this command:
+```shell
+pip install requests
+```
+###Setup is complete! You are now ready to start creating flashcards.
 
-## Generate Your Anki Flashcards
+#Part 2: Your Reusable Flashcard Workflow
 
-1. **Add Your PDFs:** Place the PDF lecture notes you want to convert into the "SOURCE_DOCUMENTS" folder within the project directory.
-2. **Run the Script:** In the same command prompt/terminal window, run the script by typing python main.py and pressing Enter.
-3. **Find Your Flashcards:** The script will process your PDFs and create a file named flashcards.txt
+## Make Sure the AI is Running
 
-## Import Flashcards into Anki
+__The Ollama application must be running in the background. Check for its icon in your system tray (bottom-right on Windows) or menu bar (top-right on Mac). If it's not running, just launch the Ollama application.__
 
-1. **Open Anki:** If it's not already open, launch the Anki application.
-2. **Create a New Deck:** Click the "Create Deck" button at the bottom of the main window and give your new deck a name (e.g., "Lecture Flashcards").
-3. Go to "File" > "Import..."
-4. **Select** the flashcards.txt file you generated.
-5. An import window will appear. Make sure the "Deck" is set to the one you just created.
-6. **Click** "Import."
+## Make Sure the AI is Running
 
-You have now successfully created a pipeline to turn your PDFs into Anki flashcards!
+1. Open the project folder you downloaded:
+```shell
+Free_Anki_FlashCard_Generator-shared-use--main.
+```
+4. **Inside**, find the folder named **SOURCE_DOCUMENTS**
+5. **Place** any and all PDF files you want to convert into this folder.
 
+## Run the Script
 
+1. **Open** your command line tool (cmd or Terminal).
+2. **You need to tell the command line** to navigate to your project folder. Type cd (the letters c and d followed by a space).
+3. **Now**, find your project folder (Free_Anki_FlashCard_Generator-shared-use--main) on your computer, and drag and drop the folder icon directly into the command line window. This will automatically paste its full path.
+4. **Press Enter.** Your command prompt should now show you are inside the project folder.
+5. **Run the script** by typing the following command and pressing **Enter:**
+```shell
+python Anki_flashcards_creator.py
+```
+6. **Be patient.** The script will now start processing. Depending on your computer's speed and the length of your PDFs, this can take several minutes. You can watch the progress in the command line window.
+7. **When it's finished,** it will say --- ALL DONE! ---. Inside your project folder, you will now find a new file named flashcards.txt.
 
+## Import into Anki
 
+1. **Open** the Anki application.
+2. **Click** "Create Deck" at the bottom and give it a name (e.g., "Biology Lecture 1").
+3. **Click** on your new deck to select it.
+4. **Go** to File > Import...
+5. **Select** the flashcards.txt file from your project folder.
+6. **An import window will appear.** This step is critical:
+            **Make sure** "Fields separated by:" is set to Semicolon.
+            **Make sure** the option "Allow HTML in fields" is checked.
+7. **Click** the "Import" button.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Congratulations! Your automatically generated flashcards are now in Anki
